@@ -28,8 +28,17 @@ contract DLogs {
 
 		delete addrLookup[ipnsLookup[blogger]];
 		delete ipnsLookup[blogger];
-		delete addrlist[addridx[blogger]];
-		delete addridx[blogger];
+
+		if (itemcount == 1) {		
+			delete addrlist[addridx[blogger]];
+			delete addridx[blogger];
+		} else {
+			addrlist[addridx[blogger]] = addrlist[itemcount];
+			addridx[addrlist[itemcount]] = addridx[blogger];
+			delete addrlist[addridx[itemcount]];
+			delete addridx[itemcount];	
+		}
+
 		itemcount = itemcount - 1;
 
 		return true;
