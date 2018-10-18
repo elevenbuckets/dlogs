@@ -35,8 +35,8 @@ contract DLogs {
 		} else {
 			addrlist[addridx[blogger]] = addrlist[itemcount];
 			addridx[addrlist[itemcount]] = addridx[blogger];
-			delete addrlist[addridx[itemcount]];
-			delete addridx[itemcount];	
+			delete addridx[addrlist[itemcount]];	
+			delete addrlist[itemcount];
 		}
 
 		itemcount = itemcount - 1;
